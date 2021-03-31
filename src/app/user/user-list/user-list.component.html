@@ -1,7 +1,23 @@
-<nav>
-    <ul>
-        <li *ngFor = "let menu of menus">
-            <a routerLink = "{{menu.route}}">{{menu.display}}</a>
-        </li>
-    </ul>
-</nav>
+<app-menu></app-menu>
+<div>
+    <h3>User list</h3>
+    <table class = "table table-sm">
+        <tr>
+            <th>Id</th>
+            <th>Username</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Reviewer</th>
+            <th>Admin</th>
+        </tr>
+        <tr *ngFor = "let user of users">
+            <td>{{user.id}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.firstName}} {{user.lastName}}</td>
+            <td>{{user.phoneNumber}}</td>
+            <td>{{user.Reviewer}}</td>
+            <td>{{user.Admin}}</td>
+        </tr>
+
+    </table>
+</div>
