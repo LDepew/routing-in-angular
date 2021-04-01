@@ -19,15 +19,16 @@ export class UserCreateComponent implements OnInit {
   ) { }
 
   save(): void {
-    console.log("B4 Create", this.user);
-    this.usrsvc.create(this.user)subscribe(
-      res => { 
-        console.log("Create successful");
+    console.log("B4 Change", this.user);
+    this.usrsvc.create(this.user).subscribe(
+      res => {
+        console.log("Create Successful!")
         this.router.navigateByUrl("/users/list");
-    ),
-    err => {
-      console.error(err);
-    }
+      },
+      err => {
+        console.error(err);
+      }
+    );
   }
 
   ngOnInit(): void {
