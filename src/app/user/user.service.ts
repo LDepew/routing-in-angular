@@ -8,7 +8,7 @@ import { User } from './user.class';
 })
 export class UserService {
 
-  baseurl: string = "localhost:8080/api/users/";
+  baseurl: string = "http://localhost:8080/api/users/";
 
   constructor(
     private http: HttpClient

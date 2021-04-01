@@ -5,8 +5,13 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class BoolDisplayPipe implements PipeTransform {
 
-  transform(value: boolean, local: string = "en"): string {
-    return value ? "Y" : "N";
+  transform(value: boolean, locale: string = "en"): string {
+    if(locale == "en") {
+      return value ? "Y" : "N";
+    }
+    if(locale == "fr") {
+      return value ? "Oui" : "Non";
+    }
   }
 
 }

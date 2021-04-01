@@ -11,6 +11,7 @@ import { HelpComponent } from './help/help.component';
 import { MenuComponent } from './menu/menu.component';
 import { UserListComponent } from './user/user-list/user-list.component';
 import { BoolDisplayPipe } from './bool-display.pipe';
+import { SearchUserPipe } from './search-user.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { BoolDisplayPipe } from './bool-display.pipe';
     HelpComponent,
     MenuComponent,
     UserListComponent,
-    BoolDisplayPipe
+    BoolDisplayPipe,
+    SearchUserPipe
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
