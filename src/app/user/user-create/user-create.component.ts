@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subscriber } from 'rxjs';
 import { User } from '../user.class';
 import { UserService } from '../user.service';
 
@@ -30,6 +29,8 @@ export class UserCreateComponent implements OnInit {
       }
     );
   }
+
+  
 
   ngOnInit(): void {
   }

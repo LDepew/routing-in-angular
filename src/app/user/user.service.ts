@@ -18,7 +18,7 @@ export class UserService {
       return this.http.get(`${this.baseurl}`) as Observable<User>;
     }
     
-    list (): Observable<User[]> {
+    list(): Observable<User[]> {
       return this.http.get(`${this.baseurl}`) as Observable<User[]>;
           }
 

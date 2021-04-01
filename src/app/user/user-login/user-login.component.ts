@@ -12,6 +12,7 @@ export class UserLoginComponent implements OnInit {
 
 
   user: User = new User();
+  message: string = '';
 
   constructor(
     private usrsvc = UserService,
