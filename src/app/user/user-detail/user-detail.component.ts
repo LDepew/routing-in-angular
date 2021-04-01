@@ -19,6 +19,15 @@ export class UserDetailComponent implements OnInit {
 
   ngOnInit(): void {
     let id = this.route.snapshot.params.id;
+    this.usrsvc.get(+id).subscribe(
+      res => {
+        console.log("User:", res);
+        this.user = res;
+      },
+      err => {
+        console.error(err);
+      }
+    );
   }
 
 }
