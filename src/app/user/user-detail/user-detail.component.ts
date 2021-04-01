@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../user.class';
 import { UserService } from '../user.service';
 
@@ -11,15 +11,37 @@ import { UserService } from '../user.service';
 export class UserDetailComponent implements OnInit {
 
   user: User = null;
+  id: number = 0;
+  showVerify: boolean = false;
 
   constructor(
     private usrsvc: UserService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
+  toggleVerify(): void {
+    this.showVerify = !this.showVerify;
+  }
+  delete(): void {
+    this.usrsvc.remove(this.user).subscribe(
+      res => {
+        console.log("Delete was successful!");
+        this.router.navigateByUrl("/user/list");
+      },
+      err => {
+        console.error(err);
+      }
+    );
+  }
+
+  edit(): void {
+    this.router.navigateByUrl(`/users/edit/${this.id}`)
+  }
+
   ngOnInit(): void {
-    let id = this.route.snapshot.params.id;
-    this.usrsvc.get(+id).subscribe(
+    this.id = this.route.snapshot.params.id;
+    this.usrsvc.get(+this.id).subscribe(
       res => {
         console.log("User:", res);
         this.user = res;
