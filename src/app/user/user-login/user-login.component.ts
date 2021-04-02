@@ -24,7 +24,9 @@ export class UserLoginComponent implements OnInit {
     console.log("Before login:", this.user);
     this.usrsvc.login(this.user.username, this.user.password).subscribe(
       res => {
-        console.log("User:", res);
+        console.log("User:", res, " is logged in");
+        this.sys.loggedInUser = res;
+        this.router.navigateByUrl("/users/list");
       },
       err => {
         console.error(err);
@@ -33,6 +35,7 @@ export class UserLoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.sys.loggedInUser = null;
   }
 
 }
