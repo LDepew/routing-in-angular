@@ -9,19 +9,13 @@ import { UserService } from '../user.service';
   styleUrls: ['./user-create.component.css']
 })
 export class UserCreateComponent implements OnInit {
-
   user: User = new User();
 
-  constructor(
-    private usrsvc = UserService,
-    private router: Router
-  ) { }
-
   save(): void {
-    console.log("B4 Change", this.user);
+    console.log("Before create:", this.user);
     this.usrsvc.create(this.user).subscribe(
       res => {
-        console.log("Create Successful!")
+        console.log("Create successful");
         this.router.navigateByUrl("/users/list");
       },
       err => {
@@ -29,8 +23,10 @@ export class UserCreateComponent implements OnInit {
       }
     );
   }
-
-  
+  constructor(
+    private usrsvc: UserService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }

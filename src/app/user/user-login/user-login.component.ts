@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { SystemService } from 'src/app/system.service';
 import { User } from '../user.class';
 import { UserService } from '../user.service';
 
@@ -9,22 +10,21 @@ import { UserService } from '../user.service';
   styleUrls: ['./user-login.component.css']
 })
 export class UserLoginComponent implements OnInit {
-
-
+  message: string = "";
   user: User = new User();
-  message: string = '';
 
   constructor(
-    private usrsvc = UserService,
+    private sys: SystemService,
+    private usrsvc: UserService,
     private router: Router
-  ) { }
-
+  ) {
+    
+   }
   login(): void {
-    console.log("B4 Login:", this.user);
+    console.log("Before login:", this.user);
     this.usrsvc.login(this.user.username, this.user.password).subscribe(
       res => {
         console.log("User:", res);
-        this.router.navigateByUrl("/users/list");
       },
       err => {
         console.error(err);

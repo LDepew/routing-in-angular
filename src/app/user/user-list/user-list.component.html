@@ -20,7 +20,7 @@
             <td>{{user.username}}</td>
             <td>{{user.firstName}} {{user.lastName}}</td>
             <td>{{user.phoneNumber}}</td>
-            <td>{{user.reviewer | bool: 'fr'}}</td>
+            <td>{{user.reviewer | bool}}</td>
             <td>{{user.admin | bool}}</td>
             <td>
                 <a routerLink = "/users/detail/{{user.id}}">Detail</a> |

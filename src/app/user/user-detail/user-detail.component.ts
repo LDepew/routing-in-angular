@@ -9,7 +9,6 @@ import { UserService } from '../user.service';
   styleUrls: ['./user-detail.component.css']
 })
 export class UserDetailComponent implements OnInit {
-
   user: User = null;
   id: number = 0;
   showVerify: boolean = false;
@@ -23,20 +22,21 @@ export class UserDetailComponent implements OnInit {
   toggleVerify(): void {
     this.showVerify = !this.showVerify;
   }
+
+  edit(): void {
+    this.router.navigateByUrl(`/users/edit/${this.id}`);
+  }
+
   delete(): void {
     this.usrsvc.remove(this.user).subscribe(
       res => {
         console.log("Delete was successful!");
-        this.router.navigateByUrl("/user/list");
+        this.router.navigateByUrl("users/list");
       },
       err => {
         console.error(err);
       }
     );
-  }
-
-  edit(): void {
-    this.router.navigateByUrl(`/users/edit/${this.id}`)
   }
 
   ngOnInit(): void {
